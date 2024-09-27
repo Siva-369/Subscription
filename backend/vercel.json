@@ -1,19 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
-  ],
-  "env": {
-    "JWT_SECRET": "@jwt_secret",
-    "MONGODB_URI": "mongodb+srv://skylarksivanandham:nx8FcatkTwiDL52O@cluster0.rbi96.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  },
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/"}
+  ]
 }
