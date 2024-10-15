@@ -8,7 +8,7 @@ const DashboardScreen = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const fetchSubscriptions = async () => {
-        const response = await axios.get('http://your-backend-url/api/subscriptions');
+        const response = await axios.get('https://your-backend-url/api/subscriptions');
         setSubscriptions(response.data);
     };
 

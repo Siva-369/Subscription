@@ -6,7 +6,7 @@ const NotificationScreen = () => {
     const [notifications, setNotifications] = useState([]);
 
     const fetchNotifications = async () => {
-        const response = await axios.get('http://your-backend-url/api/notifications'); // Create this endpoint
+        const response = await axios.get('https://your-backend-url/api/notifications'); // Create this endpoint
         setNotifications(response.data);
     };
 

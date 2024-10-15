@@ -9,7 +9,7 @@ const SignupScreen = ({ navigation }) => {
 
     const handleSignup = async () => {
         try {
-            await axios.post('http://your-backend-url/api/auth/signup', { email, password });
+            await axios.post('https://your-backend-url/api/auth/signup', { email, password });
             navigation.navigate('Login');
         } catch (err) {
             setError('Error creating account');

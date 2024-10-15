@@ -8,13 +8,13 @@ const ProfileScreen = () => {
     const [password, setPassword] = useState('');
 
     const fetchProfile = async () => {
-        const response = await axios.get('http://your-backend-url/api/auth/profile');
+        const response = await axios.get('https://your-backend-url/api/auth/profile');
         setEmail(response.data.email);
     };
 
     const handleUpdateProfile = async () => {
         try {
-            await axios.put('http://your-backend-url/api/auth/profile', { email, password });
+            await axios.put('https://your-backend-url/api/auth/profile', { email, password });
             Alert.alert('Success', 'Profile updated successfully');
         } catch (error) {
             Alert.alert('Error', 'Failed to update profile');

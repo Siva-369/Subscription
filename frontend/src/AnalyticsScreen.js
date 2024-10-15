@@ -6,7 +6,7 @@ const AnalyticsScreen = () => {
     const [analyticsData, setAnalyticsData] = useState([]);
 
     const fetchAnalytics = async () => {
-        const response = await axios.get('http://your-backend-url/api/analytics'); // Create this endpoint
+        const response = await axios.get('https://your-backend-url/api/analytics'); // Create this endpoint
         setAnalyticsData(response.data);
     };
 

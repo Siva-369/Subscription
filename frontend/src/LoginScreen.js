@@ -10,7 +10,7 @@ const LoginScreen = ({ navigation }) => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://your-backend-url/api/auth/login', { email, password });
+            const response = await axios.post('https://your-backend-url/api/auth/login', { email, password });
             setAuthToken(response.data.token); // Set token
             navigation.navigate('Dashboard');
         } catch (err) {

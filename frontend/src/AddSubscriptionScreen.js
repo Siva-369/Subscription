@@ -7,12 +7,10 @@ const AddSubscriptionScreen = ({ navigation }) => {
     const [type, setType] = useState('');
     const [cost, setCost] = useState('');
     const [category, setCategory] = useState('Streaming'); // Default category
-
     const handleAddSubscription = async () => {
-        await axios.post('http://your-backend-url/api/subscriptions', { name, type, cost, category });
-        navigation.navigate('Dashboard');
+        await axios.post('https://your-backend-url/api/subscriptions', { name, type, cost, category });
     };
-
+    
     return (
         <View>
             <TextInput placeholder="Subscription Name" value={name} onChangeText={setName} />
