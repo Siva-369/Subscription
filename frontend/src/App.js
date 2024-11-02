@@ -25,7 +25,7 @@ const App = () => {
                 <Stack.Screen name="Payments" component={PaymentScreen} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Analytics" component={AnalyticsScreen} />
-                <Stack.Screen name="Preferences" component={PreferencesScreen} /> {/* New Preferences Screen */}
+                <Stack.Screen name="Preferences" component={PreferencesScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
