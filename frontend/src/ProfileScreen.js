@@ -14,7 +14,7 @@ const ProfileScreen = () => {
 
     const handleUpdateProfile = async () => {
         try {
-            await axios.put('http://localhost:3000/api/auth/profile', { email, password });
+            await axios.put('http://localhost:5000/api/auth/profile', { email, password });
             Alert.alert('Success', 'Profile updated successfully');
         } catch (error) {
             Alert.alert('Error', 'Failed to update profile');

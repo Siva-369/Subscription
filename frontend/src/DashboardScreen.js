@@ -8,14 +8,14 @@ const DashboardScreen = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const fetchSubscriptions = async () => {
-        const response = await axios.get('https://your-backend-url/api/subscriptions');
+        const response = await axios.get('http://localhost:5000/api/subscriptions');
         setSubscriptions(response.data);
     };
 
     const handleInviteUser = async (subscriptionId) => {
         const userId = 'user_id_to_invite'; // Replace with actual user ID logic
         try {
-            await axios.post(`http://your-backend-url/api/subscriptions/${subscriptionId}/invite`, { userId });
+            await axios.post(`http://localhost:5000/api/subscriptions/${subscriptionId}/invite`, { userId });
             Alert.alert('Success', 'User invited to share subscription');
         } catch (error) {
             Alert.alert('Error', 'Failed to invite user');
