@@ -6,7 +6,7 @@ const PreferencesScreen = () => {
     const [notifications, setNotifications] = useState('in-app');
 
     const handleUpdatePreferences = async () => {
-        await axios.put('http://localhost:3000/api/auth/profile', { preferences: { notifications } });
+        await axios.put('http://localhost:5000/api/auth/profile', { preferences: { notifications } });
         alert('Preferences updated successfully');
     };
 

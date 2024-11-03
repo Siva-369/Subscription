@@ -7,12 +7,12 @@ const PaymentScreen = () => {
     const [amount, setAmount] = useState('');
 
     const fetchPayments = async () => {
-        const response = await axios.get('http://localhost:3000/api/payments/history');
+        const response = await axios.get('http://localhost:5000/api/payments/history');
         setPayments(response.data);
     };
 
     const handleAddPayment = async (subscriptionId) => {
-        await axios.post('http://localhost:3000/api/payments', { subscriptionId, amount });
+        await axios.post('http://localhost:5000/api/payments', { subscriptionId, amount });
         fetchPayments(); // Refresh payment history
     };
 

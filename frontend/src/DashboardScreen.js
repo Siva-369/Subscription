@@ -25,7 +25,7 @@ const DashboardScreen = () => {
     const handleTrackUsage = async (subscriptionId) => {
         const userId = 'user_id_to_track'; // Replace with actual user ID logic
         try {
-            await axios.post(`http://localhost:3000/api/subscriptions/${subscriptionId}/track`, { userId });
+            await axios.post(`http://localhost:5000/api/subscriptions/${subscriptionId}/track`, { userId });
             Alert.alert('Success', 'Usage tracked');
         } catch (error) {
             Alert.alert('Error', 'Failed to track usage');

@@ -8,7 +8,7 @@ const AddSubscriptionScreen = ({ navigation }) => {
     const [cost, setCost] = useState('');
     const [category, setCategory] = useState('Streaming'); // Default category
     const handleAddSubscription = async () => {
-        await axios.post('http://localhost:3000/api/subscriptions', { name, type, cost, category });
+        await axios.post('http://localhost:5000/api/subscriptions', { name, type, cost, category });
     };
     
     return (

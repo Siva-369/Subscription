@@ -8,7 +8,7 @@ const ProfileScreen = () => {
     const [password, setPassword] = useState('');
 
     const fetchProfile = async () => {
-        const response = await axios.get('http://localhost:3000/api/auth/profile');
+        const response = await axios.get('http://localhost:5000/api/auth/profile');
         setEmail(response.data.email);
     };
 
