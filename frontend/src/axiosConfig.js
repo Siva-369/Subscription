@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://your-backend-url',
+    baseURL: 'http://localhost:5000',
 });
 
 // Set the token for each request
