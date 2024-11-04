@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://subscription-cyan.vercel.app/api', // Replace with your Vercel URL
 });
 
 // Set the token for each request

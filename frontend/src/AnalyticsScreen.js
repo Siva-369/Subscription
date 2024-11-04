@@ -6,8 +6,13 @@ const AnalyticsScreen = () => {
     const [analyticsData, setAnalyticsData] = useState([]);
 
     const fetchAnalytics = async () => {
-        const response = await axios.get('http://localhost:5000/api/analytics'); // Create this endpoint
-        setAnalyticsData(response.data);
+        try {
+            // Replace localhost with the deployed Vercel URL
+            const response = await axios.get('https://subscription-cyan.vercel.app/api/analytics'); // Update this URL
+            setAnalyticsData(response.data);
+        } catch (error) {
+            console.error('Error fetching analytics:', error);
+        }
     };
 
     useEffect(() => {

@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, FlatList, TextInput } from 'react-native';
+import { View, Text, Button, FlatList, TextInput, Alert } from 'react-native';
 import axios from 'axios';
-import { Alert } from 'react-native';
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ navigation }) => {
     const [subscriptions, setSubscriptions] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     const fetchSubscriptions = async () => {
-        const response = await axios.get('http://localhost:5000/api/subscriptions');
-        setSubscriptions(response.data);
+        try {
+            const response = await axios.get('https://subscription-cyan.vercel.app/api/subscriptions');
+            setSubscriptions(response.data);
+        } catch (error) {
+            console.error('Failed to fetch subscriptions:', error);
+            Alert.alert('Error', 'Failed to load subscriptions');
+        }
     };
 
     const handleInviteUser = async (subscriptionId) => {
         const userId = 'user_id_to_invite'; // Replace with actual user ID logic
         try {
-            await axios.post(`http://localhost:5000/api/subscriptions/${subscriptionId}/invite`, { userId });
+            await axios.post(`https://your-vercel-backend-url/api/subscriptions/${subscriptionId}/invite`, { userId });
             Alert.alert('Success', 'User invited to share subscription');
         } catch (error) {
+            console.error('Failed to invite user:', error);
             Alert.alert('Error', 'Failed to invite user');
         }
     };
@@ -25,9 +30,10 @@ const DashboardScreen = () => {
     const handleTrackUsage = async (subscriptionId) => {
         const userId = 'user_id_to_track'; // Replace with actual user ID logic
         try {
-            await axios.post(`http://localhost:5000/api/subscriptions/${subscriptionId}/track`, { userId });
+            await axios.post(`https://your-vercel-backend-url/api/subscriptions/${subscriptionId}/track`, { userId });
             Alert.alert('Success', 'Usage tracked');
         } catch (error) {
+            console.error('Failed to track usage:', error);
             Alert.alert('Error', 'Failed to track usage');
         }
     };
@@ -41,8 +47,9 @@ const DashboardScreen = () => {
     );
 
     return (
-        <View>
+        <View style={{ padding: 10 }}>
             <TextInput
+                style={{ padding: 10, borderColor: 'gray', borderWidth: 1, marginBottom: 10 }}
                 placeholder="Search Subscriptions"
                 value={searchQuery}
                 onChangeText={setSearchQuery}
@@ -51,7 +58,7 @@ const DashboardScreen = () => {
                 data={filteredSubscriptions}
                 keyExtractor={(item) => item._id}
                 renderItem={({ item }) => (
-                    <View>
+                    <View style={{ marginBottom: 10 }}>
                         <Text>{item.name} - ${item.cost}</Text>
                         <Button title="Track Usage" onPress={() => handleTrackUsage(item._id)} />
                         <Button title="Invite User" onPress={() => handleInviteUser(item._id)} />
