@@ -8,8 +8,14 @@ const AddSubscriptionScreen = ({ navigation }) => {
     const [cost, setCost] = useState('');
     const [category, setCategory] = useState('Streaming'); // Default category
     const handleAddSubscription = async () => {
+    try {
         await axios.post('http://localhost:5000/api/subscriptions', { name, type, cost, category });
-    };
+        navigation.navigate('Dashboard'); // Navigate to Dashboard after successful addition
+    } catch (error) {
+        Alert.alert('Error', 'Failed to add subscription: ' + error.message);
+    }
+};
+
     
     return (
         <View>
