@@ -58,7 +58,7 @@ const DashboardScreen = () => {
                     </View>
                 )}
             />
-            <Button title="Add Subscription" onPress={() => {/* Navigate to Add Subscription Screen */}} />
+            <Button title="Add Subscription" onPress={() => navigation.navigate('AddSubscription')} />
         </View>
     );
 };
